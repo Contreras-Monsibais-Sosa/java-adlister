@@ -1,3 +1,4 @@
+<%@ page import="com.codeup.adlister.dao.DaoFactory" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -12,4 +13,6 @@
         <h1>Welcome to the Adlister!</h1>
     </div>
 </body>
+<% request.setAttribute("ads", DaoFactory.getAdsDao().all());%>
 </html>
+

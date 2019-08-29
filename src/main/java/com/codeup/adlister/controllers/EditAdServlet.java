@@ -14,15 +14,15 @@ import java.io.IOException;
 @WebServlet(name = "controllers.EditAdServlet", urlPatterns = "/ads/editAd")
 
 public class EditAdServlet extends HttpServlet{
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Long id = Long.parseLong(request.getParameter("editId"));
-        Ad ad = DaoFactory.getAdsDao().findAdbyId(id);
-        request.setAttribute("ad", ad);
+//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        Long id = Long.parseLong(request.getParameter("editId"));
+//        Ad ad = DaoFactory.getAdsDao().findAdbyId(id);
+//        request.setAttribute("ad", ad);
 
-        if request.setAttribute("editedTitle" != null){
+//        if request.setAttribute("editedTitle" != null){
+//
+//        };
 
-        };
-
-    }
+//    }
 
 }
