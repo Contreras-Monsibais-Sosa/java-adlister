@@ -16,7 +16,7 @@ public class MySQLUsersDao implements Users {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
                 config.getUrl(),
-                config.getUsername(),
+                config.getUser(),
                 config.getPassword()
             );
         } catch (SQLException e) {
@@ -36,6 +36,18 @@ public class MySQLUsersDao implements Users {
             throw new RuntimeException("Error finding a user by username", e);
         }
     }
+//    @Override
+//    public User findAdsbyUser(String username) {
+//        String query = "SELECT * FROM users WHERE username = ? LIMIT 1";
+//        try {
+//            PreparedStatement stmt = connection.prepareStatement(query);
+//            stmt.setString(1, username);
+//            return extractUser(stmt.executeQuery());
+//        } catch (SQLException e) {
+//            throw new RuntimeException("Error finding a user by username", e);
+//        }
+//    }
+
 
     @Override
     public Long insert(User user) {
