@@ -11,33 +11,42 @@
             <li><a href="/logout">Logout</a></li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <input id="inputString" onkeyup="lookup(this.value);" class="form-control mr-sm-2" type="search" placeholder="Search Ads" aria-label="Search">
+            <input id="inputString" class="form-control mr-sm-2" type="text" placeholder="Search Ads" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             <div class="suggestionsBox" id="suggestions" style="display: none;">
-                <div class="suggestionList" id="autoSuggestionsList">
-                </div>
+                <div class="u" id="autoSuggestionsList"></div>
             </div>
         </form>
     </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
     <script>
-        <c:forEach var="ad" items="${ads}">
-        console.log("${ad.title}");
-        </c:forEach>
+
     </script>
 
     <script>
-        function lookup(inputString) {
-            if (inputString.length === 0) {
-                $('#suggestionsBox').hide();
-            } else {
-                $.post("/ads/searchAds.jsp", {queryString: inputString}, function (data) {
-                    if (data.length > 0) {
-                        $('#suggestions').show();
-                        $('#autoSuggestionsList').html(data);
-                    }
-                });
-            }
+
+        var inputString = document.querySelector("#inputString");
+        inputString.addEventListener('keyup', lookup);
+
+        function lookup(e) {
+            e.preventDefault();
+            var search = inputString.value;
+            var html = '';
+                <c:forEach var="ad" items="${ads}">
+                var title = "${ad.title}";
+
+                if (title.toLowerCase().includes(search)) {
+                    console.log(title);
+                    $('#suggestions').show();
+                    html += "<li><a>"+title+"</a></li>";
+                }
+                </c:forEach>
+                    $('#autoSuggestionsList').html(html);
         }
+
+        function fill(thisValue) {
+            $('#inputString').val(thisValue);
+        }
+
     </script>
 </nav>

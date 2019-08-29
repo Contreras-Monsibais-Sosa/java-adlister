@@ -4,26 +4,14 @@
 
 <style>
     .suggestionsBox {
-        position: relative;
-        left: 260px;
-        margin: 0px 0px 0px 0px;
-        width: 200px;
-        background-color: #7845DD;
-        -moz-border-radius: 7px;
-        -webkit-border-radius: 7px;
-        border: 2px solid #000;
-        color: #fff;
-    }
-    .suggestionList {
-        margin: 0px;
-        padding: 0px;
-    }
-    .suggestionList li {
-        margin: 0px 0px 3px 0px;
-        padding: 3px;
-        cursor: pointer;
-    }
-    .suggestionList li:hover {
-        background-color: #DD45CD;
+        list-style: none;
+        position: absolute;
+        left: 90px;
+        margin: 0;
+        width: 175px;
+        background-color: white;
+        border-radius: 7px;
+        border: 1px solid #000;
+        color: black;
     }
 </style>

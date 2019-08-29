@@ -13,6 +13,5 @@
         <h1>Welcome to the Adlister!</h1>
     </div>
 </body>
-<% request.setAttribute("ads", DaoFactory.getAdsDao().all());%>
 </html>
 
