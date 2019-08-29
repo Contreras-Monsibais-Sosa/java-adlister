@@ -18,7 +18,7 @@ public class MySQLAdsDao implements Ads {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
                 config.getUrl(),
-                config.getUsername(),
+                config.getUser(),
                 config.getPassword()
             );
         } catch (SQLException e) {
@@ -52,6 +52,47 @@ public class MySQLAdsDao implements Ads {
             return rs.getLong(1);
         } catch (SQLException e) {
             throw new RuntimeException("Error creating a new ad.", e);
+        }
+    }
+
+
+    @Override
+    public Ad findAdId(Long id){
+        String query = "SELECT * from ads where id = ?";
+        try{
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            return extractAd(rs);
+        }catch (SQLException e){
+            throw new RuntimeException("Error finding a ad by ID", e);
+        }
+    }
+
+    @Override
+    public void deleteAds(Long id){
+        try{
+            String deleteQuery = "DELETE FROM ads WHERE id = ?";
+            PreparedStatement stmt = connection.prepareStatement(deleteQuery);
+            stmt.setLong(1, id);
+            stmt.executeUpdate();
+        }catch (SQLException e){
+            throw new RuntimeException("Cannot delete ad", e);
+        }
+    }
+
+    @Override
+    public void updateAds(Long id, String title, String description) {
+        try{
+            String query = "UPDATE ads SET title = ?, description = ? WHERE id = ?";
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1,title);
+            stmt.setString(2,description);
+            stmt.setLong(3,id);
+            stmt.executeUpdate();
+        }catch (SQLException e){
+            throw new RuntimeException("Unable to edit ad, e");
         }
     }
 
