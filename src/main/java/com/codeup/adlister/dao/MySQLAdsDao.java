@@ -1,6 +1,7 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
 import java.io.FileInputStream;
@@ -69,6 +70,42 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error finding a ad by ID", e);
         }
     }
+
+    @Override
+    public List<Ad> adsByUser(String username) {
+        List<Ad> userAds = new ArrayList<>();
+        PreparedStatement stmt;
+        String query = "SELECT * FROM ads WHERE user_id = ?";
+        try {
+            stmt = connection.prepareStatement(query);
+            stmt.setLong(1, DaoFactory.getUsersDao().findByUsername(username).getId());
+            ResultSet rs = stmt.executeQuery();
+            while(rs.next()){
+                userAds.add(new Ad(rs.getLong("id"), rs.getLong("user_id"), rs.getString("title"), rs.getString("description")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return userAds;
+    }
+
+    public List<Ad> adsWithTitle(String title) {
+        List<Ad> userAds = new ArrayList<>();
+        PreparedStatement stmt;
+        String query = "SELECT * FROM ads WHERE title LIKE ?";
+        try {
+            stmt = connection.prepareStatement(query);
+            stmt.setString(1, "%" + title + "%");
+            ResultSet rs = stmt.executeQuery();
+            while(rs.next()){
+                userAds.add(new Ad(rs.getLong("id"), rs.getLong("user_id"), rs.getString("title"), rs.getString("description")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return userAds;
+    }
+
 
     @Override
     public void deleteAds(Long id){
