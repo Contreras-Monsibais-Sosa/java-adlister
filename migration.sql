@@ -1,3 +1,5 @@
+CREATE DATABASE IF NOT EXISTS pokemon_adlister_db;
+
 USE pokemon_adlister_db;
 
 CREATE DATABASE IF NOT EXISTS pokemon_adlister_db;
