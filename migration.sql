@@ -2,6 +2,8 @@ CREATE DATABASE IF NOT EXISTS pokemon_adlister_db;
 
 USE pokemon_adlister_db;
 
+CREATE DATABASE IF NOT EXISTS pokemon_adlister_db;
+
 DROP TABLE IF EXISTS ads;
 DROP TABLE IF EXISTS users;
 
