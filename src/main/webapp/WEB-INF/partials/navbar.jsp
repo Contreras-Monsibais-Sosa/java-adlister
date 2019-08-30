@@ -4,12 +4,38 @@
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <a class="navbar-brand" href="/ads">Adlister</a>
+            <a class="navbar-brand" href="/">Home</a>
+
         </div>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="/register">Register</a></li>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/logout">Logout</a></li>
-        </ul>
+
+
+
+        <c:choose>
+            <c:when test="${sessionScope.user != null}">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/logout">Logout</a></li>
+                <li><a class="usernav" href="/ads/create">Create</a></li>
+                <li></li>
+            </ul>
+
+        </c:when>
+
+        <c:otherwise>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/register">Register</a></li>
+                <li><a href="/login">Login</a></li>
+                <li></li>
+            </ul>
+
+        </c:otherwise>
+
+        </c:choose>
+
+
+
         <form class="form-inline my-2 my-lg-0">
             <input id="inputString" class="form-control mr-sm-2" type="text" placeholder="Search Ads" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
