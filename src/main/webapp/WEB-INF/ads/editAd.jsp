@@ -16,16 +16,16 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <div class="container">
     <h1>Edit Your Ad</h1>
-    <form action="/ads/editad" method="post">
+    <form action="/ads/edit" method="post">
+        <input type="hidden" name="editAdId" value="${sessionScope.ad_id}" style="display: none">
         <div class="form-group">
-            <label for="title">Title</label>
-            <input id="title" name="editTitle" class="form-control" type="${sessionScope.title}">
+            <label for="editTitle">Title</label>
+            <input id="editTitle" name="editTitle" class="form-control" type="text" value="${sessionScope.ad_title}">
         </div>
         <div class="form-group">
-            <label for="description">Description</label>
-            <textarea id="description" name="editDescription" class="form-control" type="text">${sessionScope.description}</textarea>
+            <label for="editDescription">Description</label>
+            <textarea id="editDescription" name="editDescription" class="form-control" type="text">${sessionScope.description}</textarea>
         </div>
-        <input type="submit" class="btn btn-block btn-primary" value-="Edit Ad">
     </form>
 </div>
 </body>
