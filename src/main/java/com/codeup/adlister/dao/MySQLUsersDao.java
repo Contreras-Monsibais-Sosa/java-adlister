@@ -16,7 +16,7 @@ public class MySQLUsersDao implements Users {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
                     config.getUrl(),
-                    config.getUsername(),
+                    config.getUser(),
                     config.getPassword()
             );
         } catch (SQLException e) {
@@ -67,4 +67,17 @@ public class MySQLUsersDao implements Users {
                 rs.getString("password")
         );
     }
+
+    public User findUserwithAdId(Long adId){
+        String query = "SELECT * FROM users where id in (" +
+                "select user_id from ads where id = ?)";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setLong(1, adId);
+            return extractUser(stmt.executeQuery());
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding a user by username", e);
+        }
+    }
 }
+
