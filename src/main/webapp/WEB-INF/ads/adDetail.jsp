@@ -8,6 +8,8 @@
     </jsp:include>
 </head>
 <body>
+<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+
 <div class="container">
     <h1>Ad Details</h1>
     <div class="col-md-6">
