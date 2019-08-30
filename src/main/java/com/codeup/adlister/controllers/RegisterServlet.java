@@ -14,6 +14,9 @@ import java.io.IOException;
 public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("ads", DaoFactory.getAdsDao().all());
+
+        User loggedUser = (User) request.getSession().getAttribute("failed");
+
         request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
     }
 
@@ -30,9 +33,11 @@ public class RegisterServlet extends HttpServlet {
                 || (! password.equals(passwordConfirmation))
                 || (password.length() < 6)
                 || (password.length() > 20)
-                || (username.equals(DaoFactory.getUsersDao().findByUsername(username).toString()));
+                && (username.equals(DaoFactory.getUsersDao().findByUsername(username).getUsername()));
 
         if (inputHasErrors) {
+            User user = new User(username, email);
+            request.getSession().setAttribute("failed", user);
             response.sendRedirect("/register");
             return;
         }
@@ -40,6 +45,7 @@ public class RegisterServlet extends HttpServlet {
         // create and save a new user
         User user = new User(username, email, password);
         DaoFactory.getUsersDao().insert(user);
-        response.sendRedirect("/login");
+        request.getSession().setAttribute("user", user);
+        response.sendRedirect("/profile ");
     }
 }

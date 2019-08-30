@@ -18,6 +18,8 @@ public class LoginServlet extends HttpServlet {
             response.sendRedirect("/profile");
             return;
         }
+        User loggedUser = (User) request.getSession().getAttribute("failed");
+
         request.setAttribute("ads", DaoFactory.getAdsDao().all());
         request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
@@ -38,6 +40,8 @@ public class LoginServlet extends HttpServlet {
             request.getSession().setAttribute("user", user);
             response.sendRedirect("/profile");
         } else {
+            User user2 = new User(username);
+            request.getSession().setAttribute("failed", user2);
             response.sendRedirect("/login");
         }
     }
