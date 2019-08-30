@@ -43,7 +43,7 @@ public class ListAdsDao implements Ads {
     }
 
     @Override
-    public void updateAds(Long id, String title, String description) {
+    public void editAds(Long id, String title, String description) {
 
     }
 
