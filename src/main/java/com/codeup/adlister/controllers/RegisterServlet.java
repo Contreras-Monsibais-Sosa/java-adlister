@@ -37,6 +37,7 @@ public class RegisterServlet extends HttpServlet {
 
         if (inputHasErrors) {
             User user = new User(username, email);
+            request.getSession().setAttribute("error", "Invalid Username");
             request.getSession().setAttribute("failed", user);
             response.sendRedirect("/register");
             return;
