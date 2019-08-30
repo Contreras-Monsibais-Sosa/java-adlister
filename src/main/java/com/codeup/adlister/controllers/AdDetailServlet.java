@@ -17,6 +17,7 @@ public class AdDetailServlet extends HttpServlet {
         String adId=request.getParameter("id");
         Long id=Long.parseLong(adId);
         request.setAttribute("ad", DaoFactory.getAdsDao().findAdId(id));
+        request.setAttribute("user",DaoFactory.getUsersDao().findUserwithAdId(id));
         request.getRequestDispatcher("/WEB-INF/ads/adDetail.jsp").forward(request, response);
 
     }
@@ -25,19 +26,4 @@ public class AdDetailServlet extends HttpServlet {
 
 
 }
-//
-//    public User user(long adId) {
-//        String query = "
-//
-//        Select username FROM users as u
-//        join ads as a on u.id=a.user_id;
-//         where ad"
 
-//        try {
-//            PreparedStatement stmt = connection.prepareStatement(query);
-//            stmt.setString(1, username);
-//            return extractUser(stmt.executeQuery());
-//        } catch (SQLException e) {
-//            throw new RuntimeException("Error finding a user by username", e);
-//        }
-//    }

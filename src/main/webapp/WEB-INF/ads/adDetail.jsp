@@ -15,7 +15,9 @@
     <div class="col-md-6">
         <h2><c:out value="${ad.title}"/></h2>
         <p><c:out value="${ad.description}"/></p>
-<%--        <p><c:out value="${ad.category}"/></p>--%>
+        <p>Username: <c:out value="${user.username}"/></p>
+        <p>Email:<c:out value="${user.email}"/></p>
+
 
 
     </div>
