@@ -25,3 +25,19 @@ public class AdDetailServlet extends HttpServlet {
 
 
 }
+//
+//    public User user(long adId) {
+//        String query = "
+//
+//        Select username FROM users as u
+//        join ads as a on u.id=a.user_id;
+//         where ad"
+
+//        try {
+//            PreparedStatement stmt = connection.prepareStatement(query);
+//            stmt.setString(1, username);
+//            return extractUser(stmt.executeQuery());
+//        } catch (SQLException e) {
+//            throw new RuntimeException("Error finding a user by username", e);
+//        }
+//    }
