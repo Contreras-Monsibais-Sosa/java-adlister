@@ -38,7 +38,7 @@
                 if (title.toLowerCase().includes(search)) {
                     console.log(title);
                     $('#suggestions').show();
-                    html += "<li><a>"+title+"</a></li>";
+                    html += "<li><a href=\"http://localhost:8080/ad?id=${ad.id}\">"+title+"</a></li>";
                 }
                 </c:forEach>
                     $('#autoSuggestionsList').html(html);

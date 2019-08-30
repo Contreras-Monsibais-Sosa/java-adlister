@@ -16,7 +16,7 @@
         <div class="col-md-6">
             <h2>${ad.title}</h2>
             <p>${ad.description}</p>
-            <a link href="http://localhost:8080/ad?id=${ad.id}">Ad details</a>
+            <a href="http://localhost:8080/ad?id=${ad.id}">Ad details</a>
         </div>
     </c:forEach>
 </div>
