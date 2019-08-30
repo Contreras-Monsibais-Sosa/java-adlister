@@ -75,7 +75,8 @@ public class MySQLAdsDao implements Ads {
     public List<Ad> adsByUser(String username) {
         List<Ad> userAds = new ArrayList<>();
         PreparedStatement stmt;
-        String query = "SELECT * FROM ads WHERE user_id = ?";
+        String query = "SELECT * FROM ads WHERE user_id IN (" +
+                "SELECT id FROM users WHERE id = ?) ";
         try {
             stmt = connection.prepareStatement(query);
             stmt.setLong(1, DaoFactory.getUsersDao().findByUsername(username).getId());
@@ -120,7 +121,7 @@ public class MySQLAdsDao implements Ads {
     }
 
     @Override
-    public void updateAds(Long id, String title, String description) {
+    public void editAds(Long id, String title, String description) {
         try{
             String query = "UPDATE ads SET title = ?, description = ? WHERE id = ?";
             PreparedStatement stmt = connection.prepareStatement(query);

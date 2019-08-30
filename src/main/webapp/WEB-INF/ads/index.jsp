@@ -16,7 +16,11 @@
         <div class="col-md-6">
             <h2>${ad.title}</h2>
             <p>${ad.description}</p>
-            <a link href="http://localhost:8080/ad?id=${ad.id}">Ad details</a>
+            <a href="http://localhost:8080/ad?id=${ad.id}">Ad details</a>
+            <form action="/ads/edit" method="post" id="editad${ad.id}">
+                <input type="hidden" name="ad_id" value="${ad.id}">
+                <button type="submit" class="btn btn-primary">Edit</button>
+            </form>
         </div>
     </c:forEach>
 </div>
