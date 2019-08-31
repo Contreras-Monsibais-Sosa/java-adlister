@@ -10,4 +10,5 @@ public interface Users {
     Long insert(User user);
 
     User findUserwithAdId(Long adId);
+    void editUser(Long id, String input);
 }

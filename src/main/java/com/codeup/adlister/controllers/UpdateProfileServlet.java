@@ -23,11 +23,10 @@ public class UpdateProfileServlet extends HttpServlet {
             request.setAttribute("user",DaoFactory.getUsersDao().findByUsername(loggedUser.getEmail()));
 
             String email = request.getParameter("email");
-            String id=request.getParameter("id");
-//            DaoFactory.getUsersDao().editUser("email",id)
+            Long id=Long.parseLong(request.getParameter("id"));
+            DaoFactory.getUsersDao().editUser(id,email);
 
-            request.getRequestDispatcher("/WEB-INF/editProfile.jsp").forward(request, response);
-
+response.sendRedirect("/profile");
         }
 
 
