@@ -10,6 +10,9 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 <div class="container">
+    <img src="../../pictures/PokeLister.png">
+
+
     <h1>Here Are all the ads!</h1>
 
     <c:forEach var="ad" items="${ads}">
