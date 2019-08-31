@@ -18,19 +18,19 @@
     <h1>Edit Your Ad</h1>
     <form action="/ads/edit" method="post">
 <%--        <input type="hidden" name="editAdId" value="${sessionScope.id}">--%>
-    <input type="hidden" name="editId" value=4>
+    <input type="hidden" name="editId" value="${ad.id}">
         <div class="form-group">
             <label for="editTitle">Title</label>
 <%--            <input id="editTitle" name="editTitle" class="form-control" type="text" value="${sessionScope.title}">--%>
-            <input id="editTitle" name="editTitle" class="form-control" type="text" value="Title">
+            <input id="editTitle" name="editTitle" class="form-control" type="text" value=${ad.title}>
         </div>
         <div class="form-group">
             <label for="editDescription">Description</label>
 <%--            <textarea id="editDescription" name="editDescription" class="form-control" type="text">${sessionScope.description}</textarea>--%>
-                <textarea id="editDescription" name="editDescription" class="form-control" type="text">Description</textarea>
+                <textarea id="editDescription" name="editDescription" class="form-control" type="text" value = ${ad.description}></textarea>
         </div>
         <div class="form-group">
-            <button class="btn btn-block btn-primary" type="submit">Update</button>
+            <input type="Submit" class="btn btn-block btn-primary">
         </div>
     </form>
 </div>
