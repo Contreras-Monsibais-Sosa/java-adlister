@@ -21,6 +21,11 @@ public class UpdateProfileServlet extends HttpServlet {
         protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             User loggedUser = (User) request.getSession().getAttribute("user");
             request.setAttribute("user",DaoFactory.getUsersDao().findByUsername(loggedUser.getEmail()));
+
+            String email = request.getParameter("email");
+            String id=request.getParameter("id");
+//            DaoFactory.getUsersDao().editUser("email",id)
+
             request.getRequestDispatcher("/WEB-INF/editProfile.jsp").forward(request, response);
 
         }

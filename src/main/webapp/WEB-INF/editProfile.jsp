@@ -10,7 +10,9 @@
 <div class="container">
     <h1>Please Edit your information.</h1>
     <form action="/updateProfile" method="post">
+
         <div class="form-group">
+            <input type="hidden" name="id" class="form-control" value="${user.id}">
             <label for="email">Email</label>
             <input id="email" name="email" class="form-control" type="text" value="${user.email}">
         </div>
