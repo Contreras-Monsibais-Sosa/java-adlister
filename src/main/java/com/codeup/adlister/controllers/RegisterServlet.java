@@ -15,8 +15,6 @@ public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("ads", DaoFactory.getAdsDao().all());
 
-        User loggedUser = (User) request.getSession().getAttribute("failed");
-
         request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
     }
 
@@ -27,17 +25,31 @@ public class RegisterServlet extends HttpServlet {
         String passwordConfirmation = request.getParameter("confirm_password");
 
         // validate input
-        boolean inputHasErrors = username.isEmpty()
-                || email.isEmpty()
+        boolean inputHasErrors = (username == null)
+                || (email == null)
                 || password.isEmpty()
-                || (! password.equals(passwordConfirmation))
-                || (password.length() < 6)
-                || (password.length() > 20)
                 && (username.equals(DaoFactory.getUsersDao().findByUsername(username).getUsername()));
 
+        if (username != null) {
+            request.getSession().setAttribute("username", username);
+        }
+
+        if (email != null) {
+            request.getSession().setAttribute("email", email);
+        }
+
+        boolean passwordLength = (password.length() <= 6)
+                || (password.length() > 20)
+                || (! password.equals(passwordConfirmation));
+
         if (inputHasErrors) {
+            request.getSession().setAttribute("error", "Invalid Username or Password");
             User user = new User(username, email);
             request.getSession().setAttribute("failed", user);
+            response.sendRedirect("/register");
+            return;
+        } else if (passwordLength) {
+            request.getSession().setAttribute("error", "Password must be between 6 and 20 characters long or Password doesn't match");
             response.sendRedirect("/register");
             return;
         }

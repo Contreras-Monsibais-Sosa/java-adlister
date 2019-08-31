@@ -18,7 +18,6 @@ public class LoginServlet extends HttpServlet {
             response.sendRedirect("/profile");
             return;
         }
-        User loggedUser = (User) request.getSession().getAttribute("failed");
 
         request.setAttribute("ads", DaoFactory.getAdsDao().all());
         request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
@@ -29,6 +28,10 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
         User user2 = new User(username);
         User user = DaoFactory.getUsersDao().findByUsername(username);
+
+        if (username != null) {
+            request.getSession().setAttribute("username", username);
+        }
 
         if (user == null) {
             request.getSession().setAttribute("error", "Invalid Username or Password");

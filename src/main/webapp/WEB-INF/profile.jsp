@@ -27,6 +27,12 @@
                 </form>
             </div>
         </c:forEach>
+        <h5>Profile Info</h5>
+        <p>${user.username}</p>
+        <p>${user.email}</p>
+        <a href ="http://localhost:8080/updateProfile">Edit Info</a>
+<%--            <button type="button">Edit Info</button>--%>
+        </form>
     </div>
 
 </body>

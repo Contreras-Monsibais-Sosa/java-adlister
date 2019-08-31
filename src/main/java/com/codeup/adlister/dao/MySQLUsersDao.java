@@ -79,5 +79,17 @@ public class MySQLUsersDao implements Users {
             throw new RuntimeException("Error finding a user by username", e);
         }
     }
+    public void editUser(Long id, String email) {
+        try{
+            String query = "UPDATE users SET email = ? WHERE id = ?";
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1,email);
+            stmt.setLong(2,id);
+            stmt.executeUpdate();
+        }catch (SQLException e){
+            throw new RuntimeException("Unable to edit user, e");
+        }
+    }
+
 }
 
