@@ -15,17 +15,20 @@ import java.io.IOException;
 
 public class DeleteAdServlet extends HttpServlet{
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("ads", DaoFactory.getAdsDao().all());
-        if (request.getSession().getAttribute("user") == null) {
-            response.sendRedirect("/login");
-            return;
+        if (request.getSession().getAttribute("user") != null) {
+            Long id = Long.parseLong(request.getParameter("ad_id"));
+            request.setAttribute("ad", DaoFactory.getAdsDao().findAdId(id));
+            request.getRequestDispatcher("/WEB-INF/ads/deleteAd.jsp").forward(request, response);
         }
-    }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        Long id = Long.parseLong(request.getParameter("id"));
-        User user = ((User) request.getSession().getAttribute("user"));
-        DaoFactory.getAdsDao().deleteAds(id);
+        response.sendRedirect("/login");
+    }
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Long id = Long.parseLong(request.getParameter("ad_id"));
+        request.setAttribute("ad", DaoFactory.getAdsDao().findAdId(id));
+        DaoFactory.getAdsDao().deleteAd(id);
+//        User user = (User) request.getSession().getAttribute("user");
+
         response.sendRedirect("/ads");
     }
 }
