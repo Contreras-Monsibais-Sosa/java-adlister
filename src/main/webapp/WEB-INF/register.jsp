@@ -10,14 +10,28 @@
     <jsp:include page="partials/navbar.jsp" />
     <div class="container">
         <h1>Please fill in your information.</h1>
+
+        <c:if test="${sessionScope.error != null}">
+            <h3 style='color:red; text-align: center'>${sessionScope.error}</h3>
+            <% request.getSession().removeAttribute("error");%>
+        </c:if>
+
         <form action="/register" method="post">
             <div class="form-group">
                 <label for="username">Username</label>
-                <input id="username" name="username" class="form-control" type="text" value="<c:out value="${sessionScope.failed.username}"/>" >
+                <c:if test="${sessionScope.error!=null}">
+                    <input id="username" name="username" class="form-control" type="text" value = ${sessionScope.username}>
+                    <%request.getSession().removeAttribute("username");%>
+                </c:if>
+                <input id="username" name="username" class="form-control" type="text" value="<c:out value="${sessionScope.username}"/>" >
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input id="email" name="email" class="form-control" type="text" value="<c:out value="${sessionScope.failed.email}"/>" >
+                <c:if test="${sessionScope.error!=null}">
+                    <input id="email" name="email" class="form-control" type="text" value = ${sessionScope.email}>
+                    <%request.getSession().removeAttribute("email");%>
+                </c:if>
+                <input id="email" name="email" class="form-control" type="text" value="<c:out value="${sessionScope.email}"/>" >
             </div>
             <div class="form-group">
                 <label for="password">Password</label>

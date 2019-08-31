@@ -12,7 +12,7 @@
         <h1>Please Log In</h1>
 
         <c:if test="${sessionScope.error != null}">
-            <h3 style='color:red; text-align: center'>"${sessionScope.error}"</h3>
+            <h3 style='color:red; text-align: center'>${sessionScope.error}</h3>
             <% request.getSession().removeAttribute("error");%>
         </c:if>
 
@@ -23,7 +23,7 @@
                     <input id="username" name="username" class="form-control" type="text" value = ${sessionScope.username}>
                     <%request.getSession().removeAttribute("username");%>
                 </c:if>
-                <input id="username" name="username" class="form-control" type="text" value="<c:out value="${sessionScope.failed.username}"/>"  >
+                <input id="username" name="username" class="form-control" type="text" value="<c:out value="${sessionScope.username}"/>"  >
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
