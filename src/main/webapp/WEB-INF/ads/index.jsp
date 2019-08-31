@@ -20,14 +20,6 @@
             <h2>${ad.title}</h2>
             <p>${ad.description}</p>
             <a href="http://localhost:8080/ad?id=${ad.id}">Ad details</a>
-            <form action="/ads/edit" method="get" id="${ad.id}">
-                <input type="hidden" name="ad_id" value="${ad.id}">
-                <button type="submit" class="btn btn-primary">Edit</button>
-            </form>
-            <form action="http://localhost:8080/ads/delete?ad_id=${ad.id}">
-                <input type="hidden" name="ad_id" value="${ad.id}">
-                <button type="submit" class="btn btn-danger">Delete</button>
-            </form>
         </div>
     </c:forEach>
 </div>
