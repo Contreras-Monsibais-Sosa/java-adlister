@@ -21,7 +21,7 @@
                 <input type="hidden" name="ad_id" value="${ad.id}">
                 <button type="submit" class="btn btn-primary">Edit</button>
             </form>
-            <form action="/ads/delete" method="get" id="${ad.id}">
+            <form action="http://localhost:8080/ads/delete?ad_id=${ad.id}">
                 <input type="hidden" name="ad_id" value="${ad.id}">
                 <button type="submit" class="btn btn-danger">Delete</button>
             </form>
