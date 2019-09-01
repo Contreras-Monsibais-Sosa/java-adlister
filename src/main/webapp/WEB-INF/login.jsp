@@ -17,6 +17,7 @@
         </c:if>
 
         <form action="/login" method="POST">
+<%--            <input type="hidden" name="from" value="${pageContext.request.requestURI}">--%>
             <div class="form-group">
                 <label for="username">Username</label>
                 <c:if test="${sessionScope.error!=null}">
@@ -24,11 +25,13 @@
                     <%request.getSession().removeAttribute("username");%>
                 </c:if>
                 <input id="username" name="username" class="form-control" type="text" value="<c:out value="${sessionScope.username}"/>"  >
+<%--                <input type="hidden" name="from" value="${param.from}">--%>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
                 <input id="password" name="password" class="form-control" type="password">
             </div>
+
             <input type="submit" class="btn btn-primary btn-block" value="Log In">
         </form>
     </div>

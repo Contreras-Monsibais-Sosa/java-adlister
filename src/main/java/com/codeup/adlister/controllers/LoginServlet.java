@@ -32,6 +32,10 @@ public class LoginServlet extends HttpServlet {
         if (username != null) {
             request.getSession().setAttribute("username", username);
         }
+//        if (user != null) {
+//            request.getSession().setAttribute("user", user);
+//            response.sendRedirect(request.getParameter("from"));
+//        }
 
         if (user == null) {
             request.getSession().setAttribute("error", "Invalid Username or Password");
@@ -44,6 +48,7 @@ public class LoginServlet extends HttpServlet {
         if (validAttempt) {
             request.getSession().setAttribute("user", user);
             response.sendRedirect("/profile");
+//            response.sendRedirect(request.getParameter("from"));
         } else {
             request.getSession().setAttribute("failed", user2);
             response.sendRedirect("/login");
