@@ -11,9 +11,18 @@
 
     <div class="container">
         <h1>Welcome, ${sessionScope.user.username}!</h1>
+        <div class="col-md-3">
+            <img class="profileImg" src="../pictures/misty.png">
+        </div>
+        <div class="col-md-9">
+        <h5>Profile Info</h5>
+        <p>Username: ${user.username}</p>
+        <p>Email: ${user.email}</p>
+        <a href ="http://localhost:8080/updateProfile">Edit Info</a>
+        </div>
         <c:forEach var="ad" items="${ads}">
-            <div class="col-md-6">
-                <h1>Here are your ads!</h1>
+            <div class="col-md-12 profileAd">
+                <h1>Here are your Ads!</h1>
                 <h2>${ad.title}</h2>
                 <p>${ad.description}</p>
                 <a href="http://localhost:8080/ad?id=${ad.id}">Ad details</a>
@@ -27,13 +36,21 @@
                 </form>
             </div>
         </c:forEach>
-        <h5>Profile Info</h5>
-        <p>${user.username}</p>
-        <p>${user.email}</p>
-        <a href ="http://localhost:8080/updateProfile">Edit Info</a>
-<%--            <button type="button">Edit Info</button>--%>
-        </form>
     </div>
+<style>
+    .profileImg{
+        border-radius:100%;
+        height:200px;
+        width:200px;
+        float:left;
+        margin-bottom:10px;
+    }
+    .profileAd{
+
+        background:#F8F8F8;
+    }
+
+</style>
 
 </body>
 </html>
