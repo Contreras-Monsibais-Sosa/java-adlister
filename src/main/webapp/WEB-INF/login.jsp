@@ -1,14 +1,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<html>git
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Please Log In" />
     </jsp:include>
 </head>
 <body>
-    <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-    <div class="container">
+<jsp:include page="/WEB-INF/partials/bulmaNavbar.jsp"/>
+
+<div class="container">
+    <div class="content">
         <h1>Please Log In</h1>
 
         <c:if test="${sessionScope.error != null}">
@@ -17,23 +19,38 @@
         </c:if>
 
         <form action="/login" method="POST">
-<%--            <input type="hidden" name="from" value="${pageContext.request.requestURI}">--%>
-            <div class="form-group">
+            <div class="field">
                 <label for="username">Username</label>
-                <c:if test="${sessionScope.error!=null}">
-                    <input id="username" name="username" class="form-control" type="text" value = ${sessionScope.username}>
-                    <%request.getSession().removeAttribute("username");%>
-                </c:if>
-                <input id="username" name="username" class="form-control" type="text" value="<c:out value="${sessionScope.username}"/>"  >
-<%--                <input type="hidden" name="from" value="${param.from}">--%>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input id="password" name="password" class="form-control" type="password">
+                <div class="control has-icons-left">
+
+                    <c:if test="${sessionScope.error!=null}">
+                        <input id="username" name="username" class="input" type="text" value = ${sessionScope.username}>
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        <%request.getSession().removeAttribute("username");%>
+                    </c:if>
+                    <input id="username" name="username" class="input is-info" type="text" value="<c:out value="${sessionScope.username}"/>">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-user"></i>
+                    </span>
+                </div>
             </div>
 
-            <input type="submit" class="btn btn-primary btn-block" value="Log In">
+            <div class="field">
+                <label for="password">Password</label>
+                <div class="control">
+                    <input id="password" name="password" class="input" type="password">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input type="submit" class="button is-link" value="Log In">
+                </div>
+            </div>
         </form>
     </div>
+</div>
 </body>
 </html>
