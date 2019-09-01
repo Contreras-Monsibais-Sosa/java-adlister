@@ -7,18 +7,28 @@
 </head>
 <body>
     <div class="container">
+        <div class="content">
         <h1>Create a new Ad</h1>
         <form action="/ads/create" method="post">
-            <div class="form-group">
+            <div class="field">
                 <label for="title">Title</label>
+                <div class="control">
                 <input id="title" name="title" class="form-control" type="text">
             </div>
-            <div class="form-group">
-                <label for="description">Description</label>
-                <textarea id="description" name="description" class="form-control" type="text"></textarea>
             </div>
-            <input type="submit" class="btn btn-block btn-primary">
+            <div class="field">
+                <label for="description">Description</label>
+                <div class="control">
+                <textarea id="description" name="description" class="form-control"></textarea>
+            </div>
+            </div>
+            <div class="field">
+                <div class="control">
+            <input type="submit" class="button is-primary">
+                </div>
+            </div>
         </form>
+    </div>
     </div>
 </body>
 </html>

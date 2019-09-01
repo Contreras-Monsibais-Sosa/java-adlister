@@ -10,7 +10,8 @@
 <jsp:include page="/WEB-INF/partials/bulmaNavbar.jsp"/>
 <br>
     <div class="container">
-        <h1 class="title is-1">Please fill in your information.</h1>
+        <div class="content">
+        <h1>Please fill in your information.</h1>
 
         <c:if test="${sessionScope.error != null}">
             <h3 style='color:red; text-align: center'>${sessionScope.error}</h3>
@@ -77,6 +78,7 @@
                 </div>
             </div>
         </form>
+        </div>
     </div>
 </body>
 </html>

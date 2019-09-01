@@ -9,16 +9,24 @@
 <jsp:include page="/WEB-INF/partials/bulmaNavbar.jsp"/>
 <br>
 <div class="container">
-    <h1 class="title is-1">Please Edit your information.</h1>
+    <div class="content">
+    <h1>Please Edit your information.</h1>
     <form action="/updateProfile" method="post">
 
-        <div class="form-group">
+        <div class="field">
             <input type="hidden" name="id" class="form-control" value="${user.id}">
             <label for="email">Email</label>
+            <div class="control">
             <input id="email" name="email" class="form-control" type="text" value="${user.email}">
         </div>
-        <input type="submit" class="btn btn-primary btn-block">
+        </div>
+        <div class="field">
+            <div class="control">
+        <input type="submit" class="button is-info">
+            </div>
+        </div>
     </form>
+</div>
 </div>
 </body>
 </html>

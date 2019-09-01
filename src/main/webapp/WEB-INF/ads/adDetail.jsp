@@ -6,40 +6,38 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Ad Detail Page" />
     </jsp:include>
-
-    <style>
-
-        /*            body{*/
-        /*                font-size:20px;*/
-        /*            }*/
-
-        /*            .email{*/
-        /*                color:#355B9D;*/
-        /*            }*/
-        /*.adImg{*/
-        /*    height:50%;*/
-        /*    width:100%;*/
-        /*    margin-top:50px;*/
-        /*}*/
-    </style>
 </head>
 <body id="index">
-<jsp:include page="/WEB-INF/partials/bulmaNavbar.jsp"/>
-<br>
+<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+
 <div class="container">
-    <div class="columns">
-        <div class="column adInfo">
+    <div class="col-md-12">
+        <div class="col-md-6 adInfo">
             <h1>Ad Details</h1>
-            <h2>${ad.title}</h2>
-        <p>${ad.description}</p>
-        <p>Username: ${user.username}</p>
-            <p>Email:<span class="email">${user.email}</span></p>
+            <h2><c:out value="${ad.title}"/></h2>
+        <p><c:out value="${ad.description}"/></p>
+        <p>Username: <c:out value="${user.username}"/></p>
+            <p>Email:<span class="email"><c:out value="${user.email}"/></span></p>
         </div>
         <%--placeholder for now--%>
-<%--        <div class="column">--%>
-<%--        <img class="adImg" src="../../pictures/starterpokemon.png">--%>
-<%--        </div>--%>
+        <div class="col-md-6">
+        <img class="adImg" src="../../pictures/starterpokemon.png">
+        </div>
+        <style>
 
+            body{
+                font-size:20px;
+            }
+
+            .email{
+                color:#355B9D;
+            }
+            .adImg{
+                height:50%;
+                width:100%;
+                margin-top:50px;
+            }
+        </style>
 </div>
 </div>
 </body>

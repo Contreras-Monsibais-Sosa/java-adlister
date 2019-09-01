@@ -17,15 +17,20 @@
 <jsp:include page="/WEB-INF/partials/bulmaNavbar.jsp"/>
 <br>
 <div class="container">
-    <h1 class="title is-1">Delete Your Ad</h1>
+    <div class="content">
+    <h1>Delete Your Ad</h1>
     <form action="/profile/deletead" method="post">
         <input type="hidden" name="ad_id" value="${ad.id}" style="display: none">
         <h2>Are you sure you want to delete this ad?</h2>
         <h2><c:out value="${ad.title}"/></h2>
         <p><c:out value="${ad.description}"/></p>
-        <input type="submit" value="Delete this ad." class="btn btn-danger">
+        <div class="field">
+            <div class="control">
+        <input type="submit" value="Delete this ad." class="button is-danger">
+            </div>
+        </div>
     </form>
 </div>
-
+</div>
 </body>
 </html>

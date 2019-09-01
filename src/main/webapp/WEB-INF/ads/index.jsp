@@ -13,8 +13,8 @@
 <div class="container">
     <img src="../../pictures/PokeLister.png">
 
-
-    <h1 class="title is-1">Here Are all the ads!</h1>
+<div class="content">
+    <h1>Here Are all the ads!</h1>
 
     <c:forEach var="ad" items="${ads}">
         <div class="col-md-6">
@@ -22,8 +22,9 @@
             <p>${ad.description}</p>
             <a href="http://localhost:8080/ad?id=${ad.id}">Ad details</a>
         </div>
+        <br>
     </c:forEach>
 </div>
-
+</div>
 </body>
 </html>

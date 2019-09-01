@@ -11,7 +11,8 @@
 <br>
 
     <div class="container">
-        <h1 class="title is-1">Welcome, ${sessionScope.user.username}!</h1>
+        <div class="content">
+        <h1>Welcome, ${sessionScope.user.username}!</h1>
         <div class="col-md-3">
             <img class="profileImg" src="../pictures/misty.png">
         </div>
@@ -28,15 +29,24 @@
                 <p>${ad.description}</p>
                 <a href="http://localhost:8080/ad?id=${ad.id}">Ad details</a>
                 <form action="/profile/editad" method="get" id="${ad.id}">
+                    <div class="field">
+                        <div class="content">
                     <input type="hidden" name="ad_id" value="${ad.id}">
-                    <button type="submit" class="btn btn-primary">Edit</button>
+                    <button type="submit" class="button is-primary">Edit</button>
+                        </div>
+                    </div>
                 </form>
                 <form action="http://localhost:8080/profile/deletead?ad_id=${ad.id}">
+                    <div class="field">
+                        <div class="control">
                     <input type="hidden" name="ad_id" value="${ad.id}">
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="button is-danger">Delete</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </c:forEach>
+    </div>
     </div>
 <style>
     .profileImg{
