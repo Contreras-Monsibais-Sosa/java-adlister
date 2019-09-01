@@ -1,0 +1,21 @@
+body{
+    background-image: url("../../pictures/pokemonLg.jpg");
+    background-size:cover;
+    margin:0;
+
+}
+
+#indexHeaderImg{
+    margin-top:120px;
+}
+.btnHome{
+    margin-top:5px;
+    margin-left:20px;
+    width:35%;
+    outline:none;
+    border-radius:16px;
+    border:none;
+    background-image: linear-gradient(to right, #24C6DC 0%, #355B9D 51%, #24C6DC 100%);
+
+
+}
