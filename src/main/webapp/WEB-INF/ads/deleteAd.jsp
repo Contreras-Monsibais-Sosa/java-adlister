@@ -17,7 +17,7 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <div class="container">
     <h1>Delete Your Ad</h1>
-    <form action="/ads/delete" method="post">
+    <form action="/profile/deletead" method="post">
         <input type="hidden" name="ad_id" value="${ad.id}" style="display: none">
         <h2>Are you sure you want to delete this ad?</h2>
         <h2><c:out value="${ad.title}"/></h2>
