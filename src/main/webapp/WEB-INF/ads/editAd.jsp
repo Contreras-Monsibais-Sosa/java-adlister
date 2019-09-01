@@ -13,9 +13,10 @@
     </jsp:include>
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<jsp:include page="/WEB-INF/partials/bulmaNavbar.jsp"/>
+<br>
 <div class="container">
-    <h1>Edit Your Ad</h1>
+    <h1 class="title is-1">Edit Your Ad</h1>
 
     <form action="/profile/editad" method="post">
 

@@ -7,9 +7,10 @@
     </jsp:include>
 </head>
 <body>
-    <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<jsp:include page="/WEB-INF/partials/bulmaNavbar.jsp"/>
+
     <div class="container">
-        <h1>Please Log In</h1>
+        <h1 class="title is-1">Please Log In</h1>
 
         <c:if test="${sessionScope.error != null}">
             <h3 style='color:red; text-align: center'>${sessionScope.error}</h3>
@@ -17,19 +18,36 @@
         </c:if>
 
         <form action="/login" method="POST">
-            <div class="form-group">
+            <div class="field">
                 <label for="username">Username</label>
-                <c:if test="${sessionScope.error!=null}">
-                    <input id="username" name="username" class="form-control" type="text" value = ${sessionScope.username}>
+                <div class="control has-icons-left">
+
+                    <c:if test="${sessionScope.error!=null}">
+                        <input id="username" name="username" class="input" type="text" value = ${sessionScope.username}>
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                        </span>
                     <%request.getSession().removeAttribute("username");%>
-                </c:if>
-                <input id="username" name="username" class="form-control" type="text" value="<c:out value="${sessionScope.username}"/>"  >
+                    </c:if>
+                    <input id="username" name="username" class="input is-info" type="text" value="<c:out value="${sessionScope.username}"/>">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-user"></i>
+                    </span>
+                </div>
             </div>
-            <div class="form-group">
+
+            <div class="field">
                 <label for="password">Password</label>
-                <input id="password" name="password" class="form-control" type="password">
+                <div class="control">
+                    <input id="password" name="password" class="input" type="password">
+                </div>
             </div>
-            <input type="submit" class="btn btn-primary btn-block" value="Log In">
+
+            <div class="field">
+                <div class="control">
+                    <input type="submit" class="button is-link" value="Log In">
+                </div>
+            </div>
         </form>
     </div>
 </body>

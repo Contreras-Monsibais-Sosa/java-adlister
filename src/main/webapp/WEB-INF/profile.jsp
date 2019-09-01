@@ -7,10 +7,11 @@
     </jsp:include>
 </head>
 <body>
-    <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<jsp:include page="/WEB-INF/partials/bulmaNavbar.jsp"/>
+<br>
 
     <div class="container">
-        <h1>Welcome, ${sessionScope.user.username}!</h1>
+        <h1 class="title is-1">Welcome, ${sessionScope.user.username}!</h1>
         <div class="col-md-3">
             <img class="profileImg" src="../pictures/misty.png">
         </div>

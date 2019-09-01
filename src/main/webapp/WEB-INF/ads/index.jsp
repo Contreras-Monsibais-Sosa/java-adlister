@@ -7,13 +7,14 @@
     </jsp:include>
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+
+<jsp:include page="/WEB-INF/partials/bulmaNavbar.jsp"/>
 
 <div class="container">
     <img src="../../pictures/PokeLister.png">
 
 
-    <h1>Here Are all the ads!</h1>
+    <h1 class="title is-1">Here Are all the ads!</h1>
 
     <c:forEach var="ad" items="${ads}">
         <div class="col-md-6">
