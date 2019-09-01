@@ -7,12 +7,13 @@
     </jsp:include>
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+
+<jsp:include page="/WEB-INF/partials/bulmaNavbar.jsp"/>
 
 <div class="container">
     <img src="../../pictures/PokeLister.png">
 
-
+<div class="content">
     <h1>Here Are all the ads!</h1>
 
     <c:forEach var="ad" items="${ads}">
@@ -21,8 +22,9 @@
             <p>${ad.description}</p>
             <a href="http://localhost:8080/ad?id=${ad.id}">Ad details</a>
         </div>
+        <br>
     </c:forEach>
 </div>
-
+</div>
 </body>
 </html>

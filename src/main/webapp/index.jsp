@@ -10,17 +10,16 @@
 
 </head>
 <body>
-<%--    <jsp:include page="/WEB-INF/partials/navbar.jsp" />--%>
 
-    <img id="indexHeaderImg"src="pictures/PokeLister.png">
+    <img id="indexHeaderImg" src="pictures/PokeLister.png">
     <br>
     <div id="btnHome" role="group" aria-label="Basic example">
         <form method="get" action="/login">
-        <button type="submit" class="btn btn-primary btnHome btn-lg">Login</button>
+            <button type="submit" class="button btnHome"><strong>Login</strong></button>
         </form>
 
         <form method="get" action="/ads">
-        <button type="submit" class="btn btn-primary btnHome btn-lg">Continue</button>
+            <button type="submit" class="button btnHome"><strong>Continue</strong></button>
         </form>
 
     </div>
