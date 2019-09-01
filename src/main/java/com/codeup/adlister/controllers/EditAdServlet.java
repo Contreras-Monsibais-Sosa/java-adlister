@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "EditAdServlet", urlPatterns = "/ads/edit")
+@WebServlet(name = "EditAdServlet", urlPatterns = "/profile/editad")
 
 public class EditAdServlet extends HttpServlet{
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -29,6 +29,6 @@ public class EditAdServlet extends HttpServlet{
         String description = request.getParameter("editDescription");
         request.setAttribute("ad", DaoFactory.getAdsDao().findAdId(id));
         DaoFactory.getAdsDao().editAd(id, title, description);
-        response.sendRedirect("/ads");
+        response.sendRedirect("/profile");
     }
 }

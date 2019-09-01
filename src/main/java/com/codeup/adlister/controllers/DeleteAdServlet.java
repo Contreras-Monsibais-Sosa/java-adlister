@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "DeleteAdServlet", urlPatterns = "/ads/delete")
+@WebServlet(name = "DeleteAdServlet", urlPatterns = "/profile/deletead")
 
 public class DeleteAdServlet extends HttpServlet{
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.getSession().getAttribute("user") != null) {
             Long id = Long.parseLong(request.getParameter("ad_id"));
             request.setAttribute("ad", DaoFactory.getAdsDao().findAdId(id));
-            request.getRequestDispatcher("/WEB-INF/ads/deleteAd.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/ad/deleteAd.jsp").forward(request, response);
         }
 
         response.sendRedirect("/login");
@@ -29,6 +29,6 @@ public class DeleteAdServlet extends HttpServlet{
         DaoFactory.getAdsDao().deleteAd(id);
 //        User user = (User) request.getSession().getAttribute("user");
 
-        response.sendRedirect("/ads");
+        response.sendRedirect("/profile");
     }
 }
