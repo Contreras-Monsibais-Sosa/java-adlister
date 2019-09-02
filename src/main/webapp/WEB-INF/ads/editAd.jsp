@@ -13,24 +13,37 @@
     </jsp:include>
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<jsp:include page="/WEB-INF/partials/bulmaNavbar.jsp"/>
+<br>
 <div class="container">
+    <div class="content">
     <h1>Edit Your Ad</h1>
 
     <form action="/profile/editad" method="post">
 
-    <input type="hidden" name="ad_id" value="${ad.id}">
+        <div class="field">
 
             <label for="editTitle">Title</label>
-            <input id="editTitle" name="editTitle" class="form-control" type="text" value="${ad.title}">
+            <div class="control">
+                <input id="editTitle" name="editTitle" class="input is-rounded" type="text" value="${ad.title}">
+            </div>
+        </div>
+        <input type="hidden" name="ad_id" value="${ad.id}">
 
+            <div class="field">
             <label for="editDescription">Description</label>
-                <textarea id="editDescription" name="editDescription" class="form-control" type="text" value = "${ad.description}">${ad.description}</textarea>
+                <div class="control">
+                <textarea id="editDescription" name="editDescription" class="textarea" value="${ad.description}">${ad.description}</textarea>
+                </div>
+            </div>
 
-        <div class="form-group">
-            <input type="Submit" class="btn btn-block btn-primary">
+        <div class="field">
+            <div class="control">
+            <input type="Submit" class="button is-primary is-rounded">
+            </div>
         </div>
     </form>
+</div>
 </div>
 </body>
 </html>

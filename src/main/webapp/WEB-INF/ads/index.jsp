@@ -7,22 +7,26 @@
     </jsp:include>
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+
+<jsp:include page="/WEB-INF/partials/bulmaNavbar.jsp"/>
 
 <div class="container">
     <img src="../../pictures/PokeLister.png">
 
-
+<div class="content">
     <h1>Here Are all the ads!</h1>
 
+<%--    <div class="columns">--%>
     <c:forEach var="ad" items="${ads}">
-        <div class="col-md-6">
+        <div class="column is-three-fifths">
             <h2>${ad.title}</h2>
             <p>${ad.description}</p>
             <a href="http://localhost:8080/ad?id=${ad.id}">Ad details</a>
         </div>
+        <br>
     </c:forEach>
+    </div>
 </div>
-
+</div>
 </body>
 </html>

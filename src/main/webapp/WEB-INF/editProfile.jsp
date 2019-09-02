@@ -6,18 +6,27 @@
     </jsp:include>
 </head>
 <body>
-<jsp:include page="partials/navbar.jsp" />
+<jsp:include page="/WEB-INF/partials/bulmaNavbar.jsp"/>
+<br>
 <div class="container">
+    <div class="content">
     <h1>Please Edit your information.</h1>
     <form action="/updateProfile" method="post">
 
-        <div class="form-group">
+        <div class="field">
             <input type="hidden" name="id" class="form-control" value="${user.id}">
             <label for="email">Email</label>
-            <input id="email" name="email" class="form-control" type="text" value="${user.email}">
+            <div class="control">
+            <input id="email" name="email" class="input is-rounded" type="text" value="${user.email}">
         </div>
-        <input type="submit" class="btn btn-primary btn-block">
+        </div>
+        <div class="field">
+            <div class="control">
+        <input type="submit" class="button is-info is-rounded">
+            </div>
+        </div>
     </form>
+</div>
 </div>
 </body>
 </html>
