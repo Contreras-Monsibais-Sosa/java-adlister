@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>git
+<html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Please Log In" />
@@ -27,19 +27,6 @@
                         <label for="username">Username</label>
                         <div class="control has-icons-left">
 
-                   <c:if test="${sessionScope.error!=null}">
-                                <input id="username" name="username" class="input is-rounded" type="text" value = ${sessionScope.username}>
-                                <span class="icon is-small is-left">
-                            <i class="fas fa-user"></i>
-                        </span>
-                                <<<<<<< HEAD
-                                <%request.getSession().removeAttribute("username");%>
-                                =======
-                                <%request.getSession().removeAttribute("username");%>
-                            </c:if>
-                            <input id="username" name="username" class="input is-info is-rounded" type="text" value="<c:out value="${sessionScope.username}"/>">
-                            <span class="icon is-small is-left">
-
                     <c:if test="${sessionScope.error!=null}">
                         <input id="username" name="username" class="input is-rounded" type="text" value = ${sessionScope.username}>
                         <span class="icon is-small is-left">
@@ -47,9 +34,7 @@
                         </span>
 
                         <%request.getSession().removeAttribute("username");%>
-
-                    <%request.getSession().removeAttribute("username");%>
-                    </c:if>
+                        </c:if>
                     <input id="username" name="username" class="input is-info is-rounded" type="text" value="<c:out value="${sessionScope.username}"/>">
                     <span class="icon is-small is-left">
                         <i class="fas fa-user"></i>
@@ -70,18 +55,6 @@
                         </div>
                     </div>
                 </form>
-            <div class="field">
-                <label for="password">Password</label>
-                <div class="control">
-                    <input id="password" name="password" class="input is-rounded" type="password">
-                </div>
-            </div>
-
-            <div class="field">
-                <div class="control">
-                    <input type="submit" class="button is-link is-rounded" value="Log In">
-                </div>
-            </div>
         </div>
     </div>
 </body>
