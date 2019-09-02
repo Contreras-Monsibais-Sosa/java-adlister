@@ -26,7 +26,7 @@
         <p><c:out value="${ad.description}"/></p>
         <div class="field">
             <div class="control">
-        <input type="submit" value="Delete this ad." class="button is-danger">
+        <input type="submit" value="Delete this ad." class="button is-danger is-rounded">
             </div>
         </div>
     </form>

@@ -11,19 +11,20 @@
 <br>
 
     <div class="container">
+        <div class="columns">
         <div class="content">
         <h1>Welcome, ${sessionScope.user.username}!</h1>
-        <div class="col-md-3">
+        <div class="column is-one-third">
             <img class="profileImg" src="../pictures/misty.png">
         </div>
-        <div class="col-md-9">
+        <div class="column is-two-thirds">
         <h5>Profile Info</h5>
         <p>Username: ${user.username}</p>
         <p>Email: ${user.email}</p>
         <a href ="http://localhost:8080/updateProfile">Edit Info</a>
         </div>
         <c:forEach var="ad" items="${ads}">
-            <div class="col-md-12 profileAd">
+            <div class="column profileAd">
                 <h1>Here are your Ads!</h1>
                 <h2>${ad.title}</h2>
                 <p>${ad.description}</p>
@@ -32,7 +33,7 @@
                     <div class="field">
                         <div class="content">
                     <input type="hidden" name="ad_id" value="${ad.id}">
-                    <button type="submit" class="button is-primary">Edit</button>
+                    <button type="submit" class="button is-primary is-rounded">Edit</button>
                         </div>
                     </div>
                 </form>
@@ -40,7 +41,7 @@
                     <div class="field">
                         <div class="control">
                     <input type="hidden" name="ad_id" value="${ad.id}">
-                    <button type="submit" class="button is-danger">Delete</button>
+                    <button type="submit" class="button is-danger is-rounded">Delete</button>
                         </div>
                     </div>
                 </form>

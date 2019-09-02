@@ -29,7 +29,7 @@
                 <div class="control has-icons-left">
 
                     <c:if test="${sessionScope.error!=null}">
-                        <input id="username" name="username" class="input" type="text" value = ${sessionScope.username}>
+                        <input id="username" name="username" class="input is-rounded" type="text" value = ${sessionScope.username}>
                         <span class="icon is-small is-left">
                             <i class="fas fa-user"></i>
                         </span>
@@ -39,7 +39,7 @@
                     <%request.getSession().removeAttribute("username");%>
 >>>>>>> 9ad6555f0884933e26e98915bbadc562de1b3875
                     </c:if>
-                    <input id="username" name="username" class="input is-info" type="text" value="<c:out value="${sessionScope.username}"/>">
+                    <input id="username" name="username" class="input is-info is-rounded" type="text" value="<c:out value="${sessionScope.username}"/>">
                     <span class="icon is-small is-left">
                         <i class="fas fa-user"></i>
                     </span>
@@ -49,13 +49,13 @@
             <div class="field">
                 <label for="password">Password</label>
                 <div class="control">
-                    <input id="password" name="password" class="input" type="password">
+                    <input id="password" name="password" class="input is-rounded" type="password">
                 </div>
             </div>
 
             <div class="field">
                 <div class="control">
-                    <input type="submit" class="button is-link" value="Log In">
+                    <input type="submit" class="button is-link is-rounded" value="Log In">
                 </div>
             </div>
         </form>

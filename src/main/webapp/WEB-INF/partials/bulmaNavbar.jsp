@@ -19,13 +19,13 @@
 
         <div class="navbar-item field is-grouped is-grouped-left">
             <p class="control is-expanded">
-                <input id="inputString" class="input" type="text" placeholder="Search ads" aria-label="Search">
+                <input id="inputString" class="input is-rounded" type="text" placeholder="Search ads" aria-label="Search">
             </p>
             <div class="help suggestionsBox" id="suggestions" style="display: none;">
                 <div class="help" id="autoSuggestionsList"></div>
             </div>
             <p class="control navbar-item">
-                <a class="button is-primary">Search</a>
+                <a class="button is-primary is-rounded">Search</a>
             </p>
         </div>
         </div>
@@ -36,9 +36,9 @@
                 <div class="navbar-end">
                     <div class="navbar-item">
                         <div class="buttons">
-                            <a class="button is-primary" href="/profile"><strong>Profile</strong></a>
-                            <a class="button is-light" href="/ads/create">Create an Ad</a>
-                            <a class="button is-light" href="/logout">Logout</a>
+                            <a class="button is-primary is-rounded" href="/profile"><strong>Profile</strong></a>
+                            <a class="button is-light is-rounded" href="/ads/create">Create an Ad</a>
+                            <a class="button is-light is-rounded" href="/logout">Logout</a>
                         </div>
                     </div>
                 </div>
@@ -48,8 +48,8 @@
                 <div class="navbar-end">
                     <div class="navbar-item">
                         <div class="buttons">
-                            <a class="button is-primary" href="/register"><strong>Register</strong></a>
-                            <a class="button is-light" href="/login">Login</a>
+                            <a class="button is-primary is-rounded" href="/register"><strong>Register</strong></a>
+                            <a class="button is-light is-rounded" href="/login">Login</a>
                         </div>
                     </div>
                 </div>
