@@ -8,7 +8,7 @@
     </jsp:include>
 </head>
 <body id="index">
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<jsp:include page="/WEB-INF/partials/bulmaNavbar.jsp" />
 
 <div class="container">
     <div class="col-md-12">

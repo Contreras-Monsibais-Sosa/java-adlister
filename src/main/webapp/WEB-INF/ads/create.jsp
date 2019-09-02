@@ -13,18 +13,18 @@
             <div class="field">
                 <label for="title">Title</label>
                 <div class="control">
-                <input id="title" name="title" class="form-control" type="text">
+                <input id="title" name="title" class="input is-rounded" type="text">
             </div>
             </div>
             <div class="field">
                 <label for="description">Description</label>
                 <div class="control">
-                <textarea id="description" name="description" class="form-control"></textarea>
+                <textarea id="description" name="description" class="textarea"></textarea>
             </div>
             </div>
             <div class="field">
                 <div class="control">
-            <input type="submit" class="button is-primary">
+            <input type="submit" class="button is-primary is-rounded">
                 </div>
             </div>
         </form>
