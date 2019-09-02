@@ -29,6 +29,7 @@ public class EditAdServlet extends HttpServlet{
         String description = request.getParameter("editDescription");
         request.getSession().setAttribute("ad", DaoFactory.getAdsDao().findAdId(id));
         DaoFactory.getAdsDao().editAd(id, title, description);
+
         response.sendRedirect("/profile");
     }
 }

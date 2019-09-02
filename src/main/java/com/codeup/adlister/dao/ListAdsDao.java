@@ -47,6 +47,16 @@ public class ListAdsDao implements Ads {
 
     }
 
+//    @Override
+//    public Ad findCategory(Long adId) {
+//        return null;
+//    }
+
+//    @Override
+////    public Ad findCategory(Long adId) {
+////        return null;
+//    }
+
     private List<Ad> generateAds() {
         List<Ad> ads = new ArrayList<>();
         ads.add(new Ad(
@@ -75,4 +85,5 @@ public class ListAdsDao implements Ads {
         ));
         return ads;
     }
+
 }
