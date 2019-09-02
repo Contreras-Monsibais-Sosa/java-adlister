@@ -17,12 +17,12 @@
             <input type="hidden" name="id" class="form-control" value="${user.id}">
             <label for="email">Email</label>
             <div class="control">
-            <input id="email" name="email" class="form-control" type="text" value="${user.email}">
+            <input id="email" name="email" class="input is-rounded" type="text" value="${user.email}">
         </div>
         </div>
         <div class="field">
             <div class="control">
-        <input type="submit" class="button is-info">
+        <input type="submit" class="button is-info is-rounded">
             </div>
         </div>
     </form>

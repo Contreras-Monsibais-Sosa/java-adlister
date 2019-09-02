@@ -24,14 +24,14 @@
                 <div class="control has-icons-left">
 
                     <c:if test="${sessionScope.error!=null}">
-                        <input id="username" name="username" class="input" type="text" value = ${sessionScope.username}>
+                        <input id="username" name="username" class="input is-rounded" type="text" value = ${sessionScope.username}>
                         <span class="icon is-small is-left">
                             <i class="fas fa-user"></i>
                         </span>
                         <%request.getSession().removeAttribute("username");%>
                     </c:if>
 
-                    <input id="username" name="username" class="input" type="text" value="<c:out value="${sessionScope.username}"/>" >
+                    <input id="username" name="username" class="input is-rounded" type="text" value="<c:out value="${sessionScope.username}"/>" >
                     <span class="icon is-small is-left">
                         <i class="fas fa-user"></i>
                     </span>
@@ -43,14 +43,14 @@
                 <div class="control has-icons-left">
 
                     <c:if test="${sessionScope.error!=null}">
-                        <input id="email" name="email" class="input" type="text" value = ${sessionScope.email}>
+                        <input id="email" name="email" class="input is-rounded" type="text" value = ${sessionScope.email}>
                         <span class="icon is-small is-left">
                             <i class="fas fa-envelope"></i>
                         </span>
                         <%request.getSession().removeAttribute("email");%>
                     </c:if>
 
-                    <input id="email" name="email" class="input" type="text" value="<c:out value="${sessionScope.email}"/>" >
+                    <input id="email" name="email" class="input is-rounded" type="text" value="<c:out value="${sessionScope.email}"/>" >
                     <span class="icon is-small is-left">
                         <i class="fas fa-envelope"></i>
                     </span>
@@ -60,21 +60,21 @@
             <div class="filed">
                 <div class="control">
                     <label for="password">Password</label>
-                    <input id="password" name="password" class="input" type="password">
+                    <input id="password" name="password" class="input is-rounded" type="password">
                 </div>
             </div>
 
             <div class="field">
                 <div class="control">
                     <label for="confirm_password">Confirm Password</label>
-                    <input id="confirm_password" name="confirm_password" class="input" type="password">
+                    <input id="confirm_password" name="confirm_password" class="input is-rounded" type="password">
                     <p class="help is-danger">Password must be 6-20 characters long</p>
                 </div>
             </div>
 
             <div class="field">
                 <div class="control">
-                    <input type="submit" class="button is-link">
+                    <input type="submit" class="button is-link is-rounded">
                 </div>
             </div>
         </form>
