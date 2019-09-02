@@ -48,7 +48,7 @@
             </div>
         </c:forEach>
     </div>
-    </div>
+
 <style>
     .profileImg{
         border-radius:100%;
