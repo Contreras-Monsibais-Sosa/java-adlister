@@ -18,11 +18,11 @@
             <a class="navbar-item" href="/ads">Adlister</a>
 
         <div class="navbar-item field is-grouped is-grouped-left">
-            <p class="control is-expanded">
+            <div class="control is-expanded">
                 <input id="inputString" class="input is-rounded" type="text" placeholder="Search ads" aria-label="Search">
-            </p>
             <div class="help suggestionsBox" id="suggestions" style="display: none;">
                 <div class="help" id="autoSuggestionsList"></div>
+            </div>
             </div>
             <p class="control navbar-item">
                 <a class="button is-primary is-rounded">Search</a>
