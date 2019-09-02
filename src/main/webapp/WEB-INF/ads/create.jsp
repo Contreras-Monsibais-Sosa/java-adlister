@@ -6,6 +6,8 @@
     </jsp:include>
 </head>
 <body>
+<jsp:include page="/WEB-INF/partials/bulmaNavbar.jsp" />
+
     <div class="container">
         <div class="content">
         <h1>Create a new Ad</h1>
