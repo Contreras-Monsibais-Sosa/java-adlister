@@ -9,8 +9,13 @@
 <body>
 <jsp:include page="/WEB-INF/partials/bulmaNavbar.jsp"/>
 
+<<<<<<< HEAD
 <div class="container">
     <div class="content">
+=======
+    <div class="container">
+        <div class="content">
+>>>>>>> 9ad6555f0884933e26e98915bbadc562de1b3875
         <h1>Please Log In</h1>
 
         <c:if test="${sessionScope.error != null}">
@@ -28,7 +33,11 @@
                         <span class="icon is-small is-left">
                             <i class="fas fa-user"></i>
                         </span>
+<<<<<<< HEAD
                         <%request.getSession().removeAttribute("username");%>
+=======
+                    <%request.getSession().removeAttribute("username");%>
+>>>>>>> 9ad6555f0884933e26e98915bbadc562de1b3875
                     </c:if>
                     <input id="username" name="username" class="input is-info" type="text" value="<c:out value="${sessionScope.username}"/>">
                     <span class="icon is-small is-left">
@@ -51,6 +60,10 @@
             </div>
         </form>
     </div>
+<<<<<<< HEAD
 </div>
+=======
+    </div>
+>>>>>>> 9ad6555f0884933e26e98915bbadc562de1b3875
 </body>
 </html>
