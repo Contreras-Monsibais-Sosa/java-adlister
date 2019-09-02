@@ -15,3 +15,21 @@ VALUES(1,'Jigglypuff','Jigglypuff won\'t stop using Sing! I need it to go away a
       (3,'Handsome bachelor looking for his Nidoqueen','Single and looking to be Charmed by a lovely lady! I\'ll be sure to give you plenty of Presents, Nuzzle up to you after a long day, and Astonish you with my good looks! '),
       (6,'Looking to battle it out!','I\'m looking to battle with the best of them! I\'ll challenge anyone, anywhere, no matter what! Let\'s get stronger together and (Shell) Smash through the competition! I need to be the very best, and catch \'em all!!'),
       (4,'Recruiting for new Team','Follow Me and help us take over the world and everyone\'s Pokemon! We\'ll be the best team around and Disable all who oppose us!');
+
+
+INSERT INTO  categories(cat)
+    VALUES('Pokeballs'),
+    ('Medicine'),
+    ('TMs& HMs'),
+    ('Berries'),
+    ('Tech'),
+    ('Misc'),
+    ('Trading'),
+    ( 'Social');
+
+INSERT INTO  adCategories(ad_id,categories_id)
+    VALUES(1,7),
+    (2,8),
+    (3,8),
+    (4,8),
+    (5,8);

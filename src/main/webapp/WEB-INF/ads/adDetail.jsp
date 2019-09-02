@@ -12,7 +12,7 @@
 
 <div class="container">
     <div class="col-md-12">
-        <div class="col-md-6 adInfo">
+        <div class="col-md-6 ">
             <h1>Ad Details</h1>
             <h2><c:out value="${ad.title}"/></h2>
         <p><c:out value="${ad.description}"/></p>
@@ -23,6 +23,7 @@
         <div class="col-md-6">
         <img class="adImg" src="../../pictures/starterpokemon.png">
         </div>
+        <h1>${category.cat}</h1>
         <style>
 
             body{
