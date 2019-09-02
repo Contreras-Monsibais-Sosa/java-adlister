@@ -32,7 +32,7 @@ public class LoginServlet extends HttpServlet {
         if (username != null) {
             request.getSession().setAttribute("username", username);
         }
-
+        
         if (user == null) {
             request.getSession().setAttribute("error", "Invalid Username or Password");
             response.sendRedirect("/login");

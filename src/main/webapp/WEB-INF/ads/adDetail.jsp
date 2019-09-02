@@ -15,20 +15,18 @@
         <div class="col-md-6 adInfo">
             <h1>Ad Details</h1>
             <h2><c:out value="${ad.title}"/></h2>
-        <p><c:out value="${ad.description}"/></p>
-        <p>Username: <c:out value="${user.username}"/></p>
+            <p><c:out value="${ad.description}"/></p>
+            <p>Username: <c:out value="${user.username}"/></p>
             <p>Email:<span class="email"><c:out value="${user.email}"/></span></p>
         </div>
         <%--placeholder for now--%>
         <div class="col-md-6">
-        <img class="adImg" src="../../pictures/starterpokemon.png">
+            <img class="adImg" src="../../pictures/starterpokemon.png">
         </div>
         <style>
-
             body{
                 font-size:20px;
             }
-
             .email{
                 color:#355B9D;
             }
@@ -38,7 +36,7 @@
                 margin-top:50px;
             }
         </style>
-</div>
+    </div>
 </div>
 </body>
 </html>
