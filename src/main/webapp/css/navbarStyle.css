@@ -1,4 +1,5 @@
 .suggestionsBox {
+    position: absolute;
     background-color: floralwhite;
     border: 1px solid grey;
 }
