@@ -8,8 +8,8 @@ public interface Categories {
     List<Category> all();
     Category findByID(Long id);
     Category findByCat(String cat);
-    Long add(Long ad_id,Long cat_id);
-    Long delete(long id);
+    void addAdCategory(Long ad_id,Long cat_id);
+    void deleteAdCategory(long ad_id);
     Category findCategorywithAdId(Long adId);
 
     }

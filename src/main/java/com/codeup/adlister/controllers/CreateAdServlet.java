@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static java.lang.Long.parseLong;
+
 @WebServlet(name = "controllers.CreateAdServlet", urlPatterns = "/ads/create")
 public class CreateAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -20,6 +22,8 @@ public class CreateAdServlet extends HttpServlet {
         }
 
         request.setAttribute("ads", DaoFactory.getAdsDao().all());
+        request.setAttribute("category", DaoFactory.getCategoriesDao().all());
+
         request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
             .forward(request, response);
     }
@@ -31,7 +35,11 @@ public class CreateAdServlet extends HttpServlet {
             request.getParameter("title"),
             request.getParameter("description")
         );
-        DaoFactory.getAdsDao().insert(ad);
+       Long ad_id= DaoFactory.getAdsDao().insert(ad);
+       Long catId=parseLong(request.getParameter("category"));
+
+//       long num=8;
+        DaoFactory.getCategoriesDao().addAdCategory(ad_id,catId);
         response.sendRedirect("/ads");
     }
 }

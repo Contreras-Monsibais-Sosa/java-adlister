@@ -20,10 +20,13 @@ public class DaoFactory {
         }
         return usersDao;
     }
+
     public static Categories getCategoriesDao() {
         if (catsDao == null) {
             catsDao = new MySQLCategoriesDao(config);
         }
         return catsDao;
     }
+
+
 }
