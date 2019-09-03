@@ -69,15 +69,7 @@ public class MySQLCategoriesDao implements Categories {
         }
     }
 
-    @Override
-    public Long add(Long ad_id, Long cat_id) {
-        return null;
-    }
 
-    @Override
-    public Long delete(long id) {
-        return null;
-    }
 
 
 
@@ -112,6 +104,42 @@ public class MySQLCategoriesDao implements Categories {
         }
     }
 
+
+
+    @Override
+    public void addAdCategory(Long adId, Long categoryId) {
+        try {
+            String insertQuery = "INSERT INTO adCategories(ad_id, categories_id) VALUES (?, ?)";
+            PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(1, adId);
+            stmt.setLong(2, categoryId);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error creating a new adCategory.", e);
+        }
+    }
+
+    @Override
+    public void deleteAdCategory(long adId) {
+        try {
+            PreparedStatement stmt = connection.prepareStatement("DELETE FROM adCategories WHERE ad_id =?");
+            stmt.setLong(1, adId);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("error deleting ad_category,e");
+        }
+    }
+
+    public void editAdCategory( Long catId,Long adId) {
+        try {
+            String query = "UPDATE adCategories SET categories_id = ? WHERE ad_id = ?";
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setLong(1, catId);
+            stmt.setLong(2, adId);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Unable to edit adCategory, e");
+        }
+    }
+
 }
-
-

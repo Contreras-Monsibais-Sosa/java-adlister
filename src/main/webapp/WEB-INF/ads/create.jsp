@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
@@ -24,12 +26,24 @@
                 <textarea id="description" name="description" class="textarea"></textarea>
             </div>
             </div>
+            <div class="select is-rounded">
+
+            <select name="category">
+                <c:forEach var="category" items="${category}">
+                <option value="${category.id}">${category.cat}</option>
+                </c:forEach>
+            </select>
+            </div>
+            <br>
+            <br>
             <div class="field">
                 <div class="control">
             <input type="submit" class="button is-primary is-rounded">
                 </div>
             </div>
         </form>
+
+
     </div>
     </div>
 </body>

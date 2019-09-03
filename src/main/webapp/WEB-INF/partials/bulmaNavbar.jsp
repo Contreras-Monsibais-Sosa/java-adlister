@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <nav class="navbar is-info" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
 <%--        <a class="navbar-item" href="https://bulma.io">--%>
@@ -49,7 +50,10 @@
                     <div class="navbar-item">
                         <div class="buttons">
                             <a class="button is-primary is-rounded" href="/register"><strong>Register</strong></a>
-                            <a class="button is-light is-rounded" href="/login">Login</a>
+                            <c:set var="from" value="${fn:replace(pageContext.request.requestURI, '/WEB-INF', '')}"/>
+                            <c:set var="from" value="${fn:replace(from, '/index', '')}"/>
+                            <c:set var="from" value="${fn:replace(from, '.jsp', '')}"/>
+                            <a class="button is-light is-rounded" href="/login?from=${from}">Login</a>
                         </div>
                     </div>
                 </div>

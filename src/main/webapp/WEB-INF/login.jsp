@@ -23,6 +23,7 @@
                 </c:if>
 
                 <form action="/login" method="POST">
+
                     <div class="field">
                         <label for="username">Username</label>
                         <div class="control has-icons-left">
@@ -51,6 +52,7 @@
 
                     <div class="field">
                         <div class="control">
+                            <input type="hidden" name="from" value="${param.from}">
                             <input type="submit" class="button is-link is-rounded" value="Log In">
                         </div>
                     </div>

@@ -39,7 +39,20 @@
     </div>
 
         <h1>${category.cat}</h1>
-
+        <h1>Category: ${category.cat}</h1>
+        <style>
+            body{
+                font-size:20px;
+            }
+            .email{
+                color:#355B9D;
+            }
+            .adImg{
+                height:50%;
+                width:100%;
+                margin-top:50px;
+            }
+        </style>
     </div>
 </div>
 </body>
