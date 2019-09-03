@@ -130,5 +130,16 @@ public class MySQLCategoriesDao implements Categories {
         }
     }
 
+    public void editAdCategory( Long catId,Long adId) {
+        try {
+            String query = "UPDATE adCategories SET categories_id = ? WHERE ad_id = ?";
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setLong(1, catId);
+            stmt.setLong(2, adId);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Unable to edit adCategory, e");
+        }
+    }
 
 }
