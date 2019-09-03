@@ -22,7 +22,7 @@
         </div>
         <%--placeholder for now--%>
         <div class="column">
-            <img class="adImg" src="../../pictures/starterpokemon.png">
+            <img class="adImg" src="/pictures/starterpokemon.png">
         </div>
     </div>
 
