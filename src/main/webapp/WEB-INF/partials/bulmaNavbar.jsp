@@ -52,7 +52,9 @@
                             <a class="button is-primary is-rounded" href="/register"><strong>Register</strong></a>
                             <c:set var="from" value="${fn:replace(pageContext.request.requestURI, '/WEB-INF', '')}"/>
                             <c:set var="from" value="${fn:replace(from, '/index', '')}"/>
+                            <c:set var="from" value="${fn:replace(from, '/adDetail', '')}"/>
                             <c:set var="from" value="${fn:replace(from, '.jsp', '')}"/>
+                            <c:set var="from" value="${fn:replace(from, '', '')}"/>
                             <a class="button is-light is-rounded" href="/login?from=${from}">Login</a>
                         </div>
                     </div>
