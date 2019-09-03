@@ -28,6 +28,7 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
         User user2 = new User(username);
         User user = DaoFactory.getUsersDao().findByUsername(username);
+        String visitor = request.getParameter("from");
 
         if (username != null) {
             request.getSession().setAttribute("username", username);
@@ -43,7 +44,16 @@ public class LoginServlet extends HttpServlet {
 
         if (validAttempt) {
             request.getSession().setAttribute("user", user);
-            response.sendRedirect("/profile");
+
+            if (visitor != null && visitor == "") {
+                response.sendRedirect("/profile");
+            } else if (visitor != null){
+                response.sendRedirect(visitor);
+            } else if (visitor == null){
+                response.sendRedirect("/profile");
+            } else {
+                response.sendRedirect("/login");
+            }
         } else {
             request.getSession().setAttribute("failed", user2);
             response.sendRedirect("/login");
