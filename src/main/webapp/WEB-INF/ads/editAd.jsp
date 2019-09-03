@@ -41,6 +41,7 @@
         <div class="select is-rounded">
 
             <select name="category">
+                <option value="${currentCat.id}">Edit Category</option>
                 <c:forEach var="category" items="${category}">
                     <option value="${category.id}">${category.cat}</option>
                 </c:forEach>
