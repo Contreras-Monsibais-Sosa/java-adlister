@@ -38,15 +38,6 @@
             <img class="detailImg" src="/pictures/starterpokemon.png">
         </div>
     </div>
-
-        <style>
-            body{
-                font-size:20px;
-            }
-            .email{
-                color:#355B9D;
-            }
-        </style>
     </div>
 </div>
 </body>
