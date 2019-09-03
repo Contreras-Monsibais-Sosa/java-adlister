@@ -11,6 +11,8 @@ public interface Categories {
     void addAdCategory(Long ad_id,Long cat_id);
     void deleteAdCategory(long ad_id);
     Category findCategorywithAdId(Long adId);
+    public void editAdCategory( Long catId,Long adId);
+
 
     }
 

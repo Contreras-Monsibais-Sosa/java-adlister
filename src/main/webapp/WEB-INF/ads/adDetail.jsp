@@ -26,7 +26,7 @@
         </div>
     </div>
 
-        <h1>${category.cat}</h1>
+        <h1>Category: ${category.cat}</h1>
         <style>
             body{
                 font-size:20px;

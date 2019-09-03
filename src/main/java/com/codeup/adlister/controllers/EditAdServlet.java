@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static java.lang.Long.parseLong;
+
 @WebServlet(name = "EditAdServlet", urlPatterns = "/profile/editad")
 
 public class EditAdServlet extends HttpServlet{
@@ -18,6 +20,8 @@ public class EditAdServlet extends HttpServlet{
         if (request.getSession().getAttribute("user") != null) {
             Long id = Long.parseLong(request.getParameter("ad_id"));
             request.getSession().setAttribute("ad", DaoFactory.getAdsDao().findAdId(id));
+            request.setAttribute("category", DaoFactory.getCategoriesDao().all());
+
             request.getRequestDispatcher("/WEB-INF/ads/editAd.jsp").forward(request, response);
         }
             response.sendRedirect("/login");
@@ -27,6 +31,11 @@ public class EditAdServlet extends HttpServlet{
         Long id = Long.parseLong(request.getParameter("ad_id"));
         String title = request.getParameter("editTitle");
         String description = request.getParameter("editDescription");
+
+        Long catId=parseLong(request.getParameter("category"));
+        DaoFactory.getCategoriesDao().editAdCategory(catId,id);
+
+
         request.getSession().setAttribute("ad", DaoFactory.getAdsDao().findAdId(id));
         DaoFactory.getAdsDao().editAd(id, title, description);
 
