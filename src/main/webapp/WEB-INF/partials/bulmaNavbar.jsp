@@ -21,8 +21,8 @@
         <div class="navbar-item field is-grouped is-grouped-left">
             <div class="control is-expanded">
                 <input id="inputString" class="input is-rounded" type="text" placeholder="Search ads" aria-label="Search">
-            <div class="help suggestionsBox" id="suggestions" style="display: none;">
-                <div class="help" id="autoSuggestionsList"></div>
+            <div class="suggestionsBox" id="suggestions" style="display: none;">
+                <table class="table is-bordered is-striped is-hoverable suggestionList" id="autoSuggestionsList"></table>
             </div>
             </div>
             <p class="control navbar-item">
@@ -68,17 +68,24 @@
 
         function lookup(e) {
             e.preventDefault();
-            var search = inputString.value;
-            var html = '';
-            <c:forEach var="ad" items="${ads}">
-            var title = "${ad.title}";
-
-            if (title.toLowerCase().includes(search)) {
+            if (e.key === "Backspace") {
+                $('#suggestions').hide();
+                $('#autoSuggestionsList').hide();
+            } else if (e.key) {
                 $('#suggestions').show();
-                html += "<li><a href=\"http://localhost:8080/ad?id=${ad.id}\">"+title+"</a></li>";
+                $('#autoSuggestionsList').show();
+                var search = inputString.value;
+                var html = '';
+                <c:forEach var="ad" items="${ads}">
+                    var title = "${ad.title}";
+
+                    if (title.toLowerCase().includes(search)) {
+                        $('#suggestions').show();
+                        html += "<tr><td><a href=\"http://localhost:8080/ad?id=${ad.id}\">"+title+"</a></td></tr>";
+                    }
+                </c:forEach>
+                $('#autoSuggestionsList').html(html);
             }
-            </c:forEach>
-            $('#autoSuggestionsList').html(html);
         }
 
         function fill(thisValue) {

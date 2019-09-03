@@ -13,12 +13,12 @@ import java.io.IOException;
 @WebServlet(name = "controller.AdDetailServlet", urlPatterns = "/ad")
 public class AdDetailServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("ads", DaoFactory.getAdsDao().all());
 
         String adId=request.getParameter("id");
         Long id=Long.parseLong(adId);
         request.setAttribute("ad", DaoFactory.getAdsDao().findAdId(id));
-        request.setAttribute("user",DaoFactory.getUsersDao().findUserwithAdId(id)
-        );
+        request.setAttribute("user",DaoFactory.getUsersDao().findUserwithAdId(id));
         request.setAttribute("category", DaoFactory.getCategoriesDao().findCategorywithAdId(id));
 
         request.getRequestDispatcher("/WEB-INF/ads/adDetail.jsp").forward(request, response);

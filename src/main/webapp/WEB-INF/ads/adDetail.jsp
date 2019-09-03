@@ -6,6 +6,18 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Ad Detail Page" />
     </jsp:include>
+    <style>
+        body{
+            font-size:20px;
+        }
+        .email{
+            color:#355B9D;
+        }
+        .detailImg{
+            width:100%;
+            margin-top:50px;
+        }
+    </style>
 </head>
 <body id="index">
 <jsp:include page="/WEB-INF/partials/bulmaNavbar.jsp" />
@@ -22,10 +34,11 @@
         </div>
         <%--placeholder for now--%>
         <div class="column">
-            <img class="adImg" src="/pictures/starterpokemon.png">
+            <img class="detailImg" src="/pictures/starterpokemon.png">
         </div>
     </div>
 
+        <h1>${category.cat}</h1>
         <h1>Category: ${category.cat}</h1>
         <style>
             body{
