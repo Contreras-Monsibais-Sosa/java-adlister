@@ -40,6 +40,20 @@ public class MySQLAdsDao implements Ads {
     }
 
     @Override
+    public List<Ad> findbyCatId(Long id) {
+        String query = "SELECT * FROM ads WHERE id IN(SELECT ad_id FROM adCategories where categories_id = ?)";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding ads with categoryId", e);
+        }
+    }
+
+
+    @Override
     public Long insert(Ad ad) {
         try {
             String insertQuery = "INSERT INTO ads(user_id, title, description) VALUES (?, ?, ?)";
@@ -70,6 +84,7 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error finding a ad by ID", e);
         }
     }
+
 
     @Override
     public List<Ad> adsByUser(String username) {
@@ -133,6 +148,8 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Unable to edit ad, e");
         }
     }
+
+
 
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
