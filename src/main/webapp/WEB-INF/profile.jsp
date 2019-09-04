@@ -14,15 +14,19 @@
         <div class="columns">
         <div class="content">
         <h1>Welcome, ${sessionScope.user.username}!</h1>
-        <div class="column is-one-third">
+        <div class="column is-two-thirds">
             <img class="profileImg" src="../pictures/misty.png">
         </div>
-        <div class="column is-two-thirds">
+        <div class="column is-one-third">
         <h5>Profile Info</h5>
         <p>Username: ${user.username}</p>
         <p>Email: ${user.email}</p>
         <a href ="http://localhost:8080/updateProfile">Edit Info</a>
         </div>
+        </div>
+        </div>
+            <div class="columns">
+                <div class="content">
         <c:forEach var="ad" items="${ads}">
             <div class="column profileAd">
                 <h1>Here are your Ads!</h1>
@@ -47,6 +51,8 @@
                 </form>
             </div>
         </c:forEach>
+    </div>
+    </div>
     </div>
 
 <style>
