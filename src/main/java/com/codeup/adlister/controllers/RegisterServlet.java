@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLIntegrityConstraintViolationException;
 
 @WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
@@ -27,8 +28,7 @@ public class RegisterServlet extends HttpServlet {
         // validate input
         boolean inputHasErrors = (username == null)
                 || (email == null)
-                || password.isEmpty()
-                && (username.equals(DaoFactory.getUsersDao().findByUsername(username).getUsername()));
+                || password.isEmpty();
 
         if (username != null) {
             request.getSession().setAttribute("username", username);
@@ -38,12 +38,19 @@ public class RegisterServlet extends HttpServlet {
             request.getSession().setAttribute("email", email);
         }
 
+        if (username.equals(DaoFactory.getUsersDao().findByUsername(username).getUsername())) {
+            request.getSession().setAttribute("error", "Invalid Username or Password");
+            User user = new User(username, email);
+            request.getSession().setAttribute("failed", user);
+            response.sendRedirect("/register");
+            return;
+        }
+
         boolean passwordLength = (password.length() <= 6)
                 || (password.length() > 20)
                 || (! password.equals(passwordConfirmation));
 
         if (inputHasErrors) {
-            request.getSession().setAttribute("error", "Invalid Username or Password");
             User user = new User(username, email);
             request.getSession().setAttribute("failed", user);
             response.sendRedirect("/register");
@@ -55,9 +62,9 @@ public class RegisterServlet extends HttpServlet {
         }
 
         // create and save a new user
-        User user = new User(username, email, password);
-        DaoFactory.getUsersDao().insert(user);
-//        request.getSession().setAttribute("user", user);
-        response.sendRedirect("/login ");
+            User user = new User(username, email, password);
+            DaoFactory.getUsersDao().insert(user);
+            request.getSession().setAttribute("user", user);
+            response.sendRedirect("/login ");
     }
 }
