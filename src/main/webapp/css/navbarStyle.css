@@ -1,3 +1,7 @@
+.pokeball {
+    height: auto;
+    width: auto;
+}
 .suggestionsBox {
     position: absolute;
     background-color: floralwhite;

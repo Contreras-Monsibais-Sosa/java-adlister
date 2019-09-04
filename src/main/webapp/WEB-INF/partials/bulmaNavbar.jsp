@@ -2,9 +2,9 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <nav class="navbar is-info" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-<%--        <a class="navbar-item" href="https://bulma.io">--%>
-<%--            <img src="/pictures/pokeball.png" width="112" height="112">--%>
-<%--        </a>--%>
+        <a class="navbar-item" href="https://bulma.io">
+            <img src="/pictures/pokeball.png" class="pokeball">
+        </a>
 
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
             <span aria-hidden="true"></span>
