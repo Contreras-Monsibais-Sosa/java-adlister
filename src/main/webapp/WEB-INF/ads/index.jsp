@@ -41,7 +41,7 @@
             <div id="pokeLister" class="column is-three-fifths">
                 <h2>${ad.title}</h2>
                 <p>${ad.description}</p>
-                <a href="http://localhost:8080/ad?id=${ad.id}">Ad details</a>
+                <a href="/ad?id=${ad.id}">Ad details</a>
             </div>
             <br>
         </c:forEach>
