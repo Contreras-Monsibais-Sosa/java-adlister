@@ -18,6 +18,8 @@
             <a class="navbar-item" href="/">Home</a>
             <a class="navbar-item" href="/ads">Adlister</a>
 
+
+
         <div class="navbar-item field is-grouped is-grouped-left">
             <div class="control is-expanded">
                 <input id="inputString" class="input is-rounded" type="text" placeholder="Search ads" aria-label="Search">
@@ -30,6 +32,7 @@
             </p>
         </div>
         </div>
+
 
 
         <c:choose>
