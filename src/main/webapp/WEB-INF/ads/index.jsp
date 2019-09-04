@@ -15,7 +15,7 @@
 
     <div class="content">
         <h1>Here Are all the ads!</h1>
-
+<form method="get" action="/category">
         <div class="field">
             <div class="control">
                 <div class="select">
@@ -28,7 +28,12 @@
                 </div>
             </div>
         </div>
-
+        <div class="field">
+        <div class="control">
+            <input type="submit" class="button is-primary is-rounded">
+        </div>
+    </div>
+</form>
         <c:choose>
             <c:when test=""></c:when>
         </c:choose>
